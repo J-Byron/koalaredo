@@ -9,7 +9,7 @@ const koalaSchema = new Schema({
   name: {type: String},
   gender: {type: String},
   age: {type: Number},
-  ready_to_transfer: {type: Boolean},
+  readyToTransfer: {type: Boolean},
   notes: {type: String}
 })
 
