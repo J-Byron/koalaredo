@@ -24,7 +24,7 @@ mongoose.connection.on('error', (error) => {
 });
 
 /** ------- EXPRESS ROUTES --------- **/
-app.use('/koalas', kolaRouter);
+app.use('/api/koalas', kolaRouter);
 
 /** --------- START SERVER ----------- */
 app.listen(PORT, () => {
