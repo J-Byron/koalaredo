@@ -64,7 +64,7 @@ class Home extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         console.log('current state', this.state);
-        
+        this.props.dispatch({type: 'ADD_KOALA', payload: this.state})
     }
 
     render() {
