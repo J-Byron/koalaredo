@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 // Mongoose Schema
-const Scheme = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const koalaSchema = new Schema({
   name: {type: String},
