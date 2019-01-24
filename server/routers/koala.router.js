@@ -31,6 +31,8 @@ router.get('/', (req, res) => {
 // Setup a POST route
 router.post('/', (req, res) => {
   const newKoala = req.body;
+    console.log(newKoala);
+  
   console.log('req.body ', newKoala);
   Koala.create(newKoala)
     .then(results => {

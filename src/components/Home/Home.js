@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+import {connect} from 'react-redux';
 
 import green from '@material-ui/core/colors/green';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -64,6 +65,7 @@ class Home extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         console.log('current state', this.state);
+        this.props.dispatch({type: 'ADD_KOALA', payload: this.state})
     }
 
     render() {
@@ -125,4 +127,4 @@ class Home extends Component {
     }
 }
 
-export default withStyles(styles)(Home);
+export default connect()(withStyles(styles)(Home));

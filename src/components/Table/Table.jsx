@@ -48,15 +48,15 @@ class TableData extends Component {
                         </TableHead>
                         <TableBody>
                             {koalas.map(row => (
-                                <TableRow key={row.id}>
+                                <TableRow key={row._id}>
                                     <TableCell component="th" scope="row">
-                                        {row.name}
+                                        {row._id}
                                     </TableCell>
-                                    <TableCell align="right"></TableCell>
-                                    <TableCell align="right"></TableCell>
-                                    <TableCell align="right"></TableCell>
-                                    <TableCell align="right"></TableCell>
-                                    <TableCell align="right"></TableCell>
+                                    <TableCell align="right">{row.name}</TableCell>
+                                    <TableCell align="right">{row.gender || 'false'}</TableCell>
+                                    <TableCell align="right">{row.age}</TableCell>
+                                    <TableCell align="right">{row.readyToTransfer || 'false'}</TableCell>
+                                    <TableCell align="right">{row.notes}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -66,7 +66,5 @@ class TableData extends Component {
         );
     }
 }
-
-const con
 
 export default connect(mapStateToProps)(withStyles(styles)(TableData));
