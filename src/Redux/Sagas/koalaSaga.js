@@ -23,9 +23,19 @@ function* addKoala(action){
     }
 }
 
+function* toggleReady(action) {
+    try {
+        yield call(axios.put, `/koalas/${action.payload.id}`, action.payload.val)
+        yield dispatch({ type: 'GET_KOALA' })
+    } catch (error) {
+        console.log('error in add koala saga', error);
+    }
+}
+
 function* koalaWatcher(){
     yield takeEvery('ADD_KOALA' , addKoala)
     yield takeEvery('GET_KOALA' , getKoala)
+    yield takeEvery('TOGGLE_READY' , toggleReady)
 }
 
 export default koalaWatcher

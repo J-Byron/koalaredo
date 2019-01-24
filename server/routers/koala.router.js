@@ -64,7 +64,8 @@ router.delete('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  let updatedKoala = req.body;
+    const val = req.body.val;
+  let updatedKoala = {readyToTransfer: val}
   console.log('Updated koala: ', updatedKoala);
   // Find Koala
   Koala.findOneAndUpdate({

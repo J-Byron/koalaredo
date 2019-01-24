@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button';
 
 const mapStateToProps = reduxStore => {
     return {
@@ -28,6 +29,11 @@ const styles = theme => ({
 class TableData extends Component {
    componentDidMount() {
        this.props.dispatch({type: 'GET_KOALA'})
+   }
+
+   toggleReady = (id, toggle) => {
+       this.props.dispatch({type: 'TOGGLE_READY', 
+       payload: {id: id, val: {val: !toggle}}})
    }
     render() {
         const {koalas} = this.props;
@@ -55,7 +61,11 @@ class TableData extends Component {
                                     <TableCell align="right">{row.name}</TableCell>
                                     <TableCell align="right">{row.gender || 'false'}</TableCell>
                                     <TableCell align="right">{row.age}</TableCell>
-                                    <TableCell align="right">{row.readyToTransfer || 'false'}</TableCell>
+                                    <TableCell align="right">{row.readyToTransfer ? 'true' : 'false'}
+                                        <Button onClick={() => this.toggleReady(row._id, row.readyToTransfer)} variant="contained"> 
+                                            Toggle
+                                        </Button>
+                                    </TableCell>
                                     <TableCell align="right">{row.notes}</TableCell>
                                 </TableRow>
                             ))}
