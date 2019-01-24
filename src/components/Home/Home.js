@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import {connect} from 'react-redux';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 
@@ -126,4 +127,4 @@ class Home extends Component {
     }
 }
 
-export default withStyles(styles)(Home);
+export default connect()(withStyles(styles)(Home));
