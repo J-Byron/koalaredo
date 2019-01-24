@@ -24,7 +24,7 @@ mongoose.connection.on('error', (error) => {
 });
 
 /** ------- EXPRESS ROUTES --------- **/
-app.use('/employees', kolaRouter);
+app.use('/koalas', kolaRouter);
 
 /** --------- START SERVER ----------- */
 app.listen(PORT, () => {
