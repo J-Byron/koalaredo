@@ -64,7 +64,6 @@ class Home extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         console.log('current state', this.state);
-        
     }
 
     render() {

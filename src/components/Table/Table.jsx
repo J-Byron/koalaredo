@@ -7,11 +7,12 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper'
-// const mapStateToProps = reduxStore => {
-//     return {
-//         piece: reduxStore.piece
-//     }
-// }
+
+const mapStateToProps = reduxStore => {
+    return {
+        koalas: reduxStore.koallaReducer
+    }
+}
 
 const styles = theme => ({
     root: {
@@ -25,8 +26,12 @@ const styles = theme => ({
 });
 
 class TableData extends Component {
-   
+   componentDidMount() {
+       this.props.dispatch({type: 'GET_KOALA'})
+   }
     render() {
+        const {koalas} = this.props;
+
         return (
             <div>
                 <Paper >
@@ -41,8 +46,8 @@ class TableData extends Component {
                                 <TableCell align="right">Comments</TableCell>
                             </TableRow>
                         </TableHead>
-                        {/* <TableBody>
-                            {rows.map(row => (
+                        <TableBody>
+                            {koalas.map(row => (
                                 <TableRow key={row.id}>
                                     <TableCell component="th" scope="row">
                                         {row.name}
@@ -54,7 +59,7 @@ class TableData extends Component {
                                     <TableCell align="right"></TableCell>
                                 </TableRow>
                             ))}
-                        </TableBody> */}
+                        </TableBody>
                     </Table>
                 </Paper>
             </div>
@@ -62,4 +67,6 @@ class TableData extends Component {
     }
 }
 
-export default TableData;
+const con
+
+export default connect(mapStateToProps)(withStyles(styles)(TableData));
