@@ -34,6 +34,7 @@ const styles = theme => ({
             color: green[500],
         },
     },
+    checked: {},
     button: {
         margin: theme.spacing.unit,
     },
