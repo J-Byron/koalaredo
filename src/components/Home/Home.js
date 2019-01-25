@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import green from '@material-ui/core/colors/green';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -52,6 +52,16 @@ class Home extends Component {
         notes: ''
     };
 
+    clearForm = () => {
+        this.setState({
+            name: '',
+            gender: '',
+            age: '',
+            readyToTransfer: false,
+            notes: ''
+        })
+    }
+
     handleChange = name => event => {
         this.setState({
             [name]: event.target.value,
@@ -65,7 +75,8 @@ class Home extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         console.log('current state', this.state);
-        this.props.dispatch({type: 'ADD_KOALA', payload: this.state})
+        this.props.dispatch({ type: 'ADD_KOALA', payload: this.state });
+        this.clearForm();
     }
 
     render() {
@@ -73,7 +84,7 @@ class Home extends Component {
         return (
             <div>
                 {/* <Nav /> */}
-                <form onSubmit={this.handleSubmit} className={classes.container} noValidate      autoComplete="off">
+                <form onSubmit={this.handleSubmit} className={classes.container} noValidate autoComplete="off">
                     <TextField
                         id="standard-name"
                         label="Name"
